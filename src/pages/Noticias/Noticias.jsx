@@ -65,35 +65,39 @@ const Noticias = () => {
 
       <div className="noticias-grid">
         {/* Noticias fijas */}
-        <a
-          href="https://wa.me/51934099199?text=Hola%20CantoNoticia!%20Estoy%20interesado%20en%20el%20concierto%20de%20agosto"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="noticia-card"
-        >
-          <img src={noticia1} alt="Noticia 1" className="noticia-img" />
-          <h3>Concierto de estudiantes – Agosto 2025</h3>
-          <p>Los alumnos de CantoNoticia presentarán un recital abierto al público con repertorio clásico y contemporáneo.</p>
-        </a>
-
-        <article className="noticia-card">
-          <img src={noticia2} alt="Noticia 2" className="noticia-img" />
-          <h3>Nuevo curso: Canto para principiantes</h3>
-          <p>Inscríbete al nuevo taller de iniciación al canto. Ideal para quienes quieren empezar desde cero.</p>
-        </article>
-
-        <article className="noticia-card">
-          <img src={noticia3} alt="Noticia 3" className="noticia-img" />
-          <h3>Semana de audiciones abiertas</h3>
-          <p>¿Te gustaría formar parte de un ensamble vocal? ¡Ven a audicionar!</p>
-        </article>
+        {[ // Array para recorrer las noticias fijas
+          { img: noticia1, titulo: "Concierto de estudiantes – Agosto 2025", texto: "Los alumnos de CantoNoticia presentarán un recital abierto al público con repertorio clásico y contemporáneo." },
+          { img: noticia2, titulo: "Nuevo curso: Canto para principiantes", texto: "Inscríbete al nuevo taller de iniciación al canto. Ideal para quienes quieren empezar desde cero." },
+          { img: noticia3, titulo: "Semana de audiciones abiertas", texto: "¿Te gustaría formar parte de un ensamble vocal? ¡Ven a audicionar!" }
+        ].map((noti, idx) => (
+          <a
+            key={idx}
+            href="https://wa.me/51934099199?text=Hola%20CantoNoticia!%20Estoy%20interesado%20en%20más%20información%20sobre%20las%20noticias"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="noticia-card"
+          >
+            <img src={noti.img} alt={noti.titulo} className="noticia-img" />
+            <h3>{noti.titulo}</h3>
+            <p>{noti.texto}</p>
+          </a>
+        ))}
 
         {/* Noticias dinámicas desde Firebase */}
         {noticias.map(noticia => (
-          <article className="noticia-card" key={noticia.id}>
+          <a
+            key={noticia.id}
+            href="https://wa.me/51934099199?text=Hola%20CantoNoticia!%20Estoy%20interesado%20en%20más%20información%20sobre%20las%20noticias"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="noticia-card"
+          >
+            {noticia.imagen && (
+              <img src={noticia.imagen} alt={noticia.titulo} className="noticia-img" />
+            )}
             <h3>{noticia.titulo}</h3>
             <p>{noticia.contenido}</p>
-          </article>
+          </a>
         ))}
       </div>
     </section>
