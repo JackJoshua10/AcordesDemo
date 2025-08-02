@@ -1,0 +1,129 @@
+/* ...existing code... */
+
+.navbar {
+  background: #222;
+  color: #fff;
+  padding: 0.2rem 1rem;
+  min-height: 48px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  padding: 0.5rem;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 28px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffb400;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background: #222;
+    flex-direction: column;
+    width: 180px;
+    gap: 0;
+    padding: 1rem 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav-link {
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid #333;
+  }
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ...existing code... */
