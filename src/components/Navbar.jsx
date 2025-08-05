@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <header className="navbar" role="banner">
       <nav className="navbar-container" role="navigation" aria-label="Main navigation">
-        <a href="#inicio" className="logo">CantoNoticia</a>
+        <a href="#inicio" className="logo">Logo/Acrodes</a>
         <button
           className="menu-toggle"
           aria-label="Abrir menú"
